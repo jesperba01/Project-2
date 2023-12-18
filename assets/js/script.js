@@ -60,6 +60,9 @@ function selectAnswer(e) {
         startButton.innerText = 'Restart';
         startButton.classList.remove('hide');
     }
+    if (correct) {
+        incrementScore();
+    }
 }
 
 function setStatusClass(element, correct) {
@@ -76,75 +79,87 @@ function clearStatusClass(element) {
     element.classList.remove('wrong');
 }
 
+function incrementScore() {
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
+}
+
+
+function minusScore() {
+
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = --oldScore;
+}
+
 const questions = [
     {
         question: 'What is 2 + 2?',
         answers: [
             { text: '4', correct: true },
-            { text: '22', correct: false }
+            { text: '22', wrong: false }
         ]
     },
     {
         question: 'Whats the capital of Sweden',
         answers: [
-            { text: 'Malmö', correct: false },
-            { text: 'Göteborg', correct: false },
-            { text: 'Dublin', correct: false },
+            { text: 'Malmö', wrong: false },
+            { text: 'Göteborg', wrong: false },
+            { text: 'Dublin', wrong: false },
             { text: 'Stockholm', correct: true }
         ]
     },
     {
         question: 'What country has the highest life expectancy?',
         answers: [
-            { text: 'Sweden', correct: false },
+            { text: 'Sweden', wrong: false },
             { text: 'Hong Kong', correct: true },
-            { text: 'America', correct: false },
-            { text: 'Germany', correct: false }
+            { text: 'America', wrong: false },
+            { text: 'Germany', wrong: false }
         ]
     },
     {
         question: 'Queen guitarist Brian May is also an expert in what scientific field?',
         answers: [
-            { text: 'Experimental physics', correct: false },
+            { text: 'Experimental physics', wrong: false },
             { text: 'Astrophysics', correct: true },
-            { text: 'Chemistry', correct: false },
-            { text: 'Theoretical physics', correct: false }
+            { text: 'Chemistry', wrong: false },
+            { text: 'Theoretical physics', wrong: false }
         ]
     },
     {
         question: 'What Netflix show had the most streaming views in 2021?',
         answers: [
             { text: 'Squid Game', correct: true },
-            { text: 'WandaVision', correct: false },
-            { text: 'Arcane', correct: false },
-            { text: 'Sweet Tooth', correct: false }
+            { text: 'WandaVision', wrong: false },
+            { text: 'Arcane', wrong: false },
+            { text: 'Sweet Tooth', wrong: false }
         ]
     },
     {
         question: 'What country has won the most World Cups? ',
         answers: [
-            { text: 'England', correct: false },
-            { text: 'Sweden', correct: false },
-            { text: 'France', correct: false },
+            { text: 'England', wrong: false },
+            { text: 'Sweden', wrong: false },
+            { text: 'France', wrong: false },
             { text: 'Brazil', correct: true }
         ]
     },
     {
         question: 'What is a group of crows called?',
         answers: [
-            { text: 'Crowboys', correct: false },
-            { text: 'plural crows', correct: false },
+            { text: 'Crowboys', wrong: false },
+            { text: 'plural crows', wrong: false },
             { text: 'A murder', correct: true },
-            { text: 'A group of crows', correct: false }
+            { text: 'A group of crows', wrong: false }
         ]
     },
     {
         question: 'Who is the world’s highest-paid athlete in 2021?',
         answers: [
-            { text: 'Christian Ronaldo', correct: false },
+            { text: 'Christian Ronaldo', wrong: false },
             { text: 'Conor McGregor', correct: true },
-            { text: 'Floyd Mayweather', correct: false },
-            { text: 'Tiger Woods', correct: false }
+            { text: 'Floyd Mayweather', wrong: false },
+            { text: 'Tiger Woods', wrong: false }
         ]
     }
 ];
