@@ -94,7 +94,13 @@ body.wrong {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    border-radius: 5px;
-    padding: 10px 20px;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 40px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
