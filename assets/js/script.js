@@ -6,7 +6,10 @@ const answerButtonsElement = document.getElementById('answer-buttons');
 
 let shuffledQuestions, currentQuestionIndex;
 
+answerButtonsElement.classList.add('hide');
+
 startButton.addEventListener('click', startGame);
+startButton.addEventListener('click', myTimer);
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
@@ -14,10 +17,26 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
     startButton.classList.add('hide');
+    answerButtonsElement.classList.remove('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
     setNextQuestion();
+}
+
+function myTimer() {
+    var count = 25;
+    var interval = setInterval(function () {
+        document.getElementById('timer').innerHTML = 'Time Left ' + count;
+        count--;
+        if (count === -1) {
+            clearInterval(interval);
+            alert("You're out of time!");
+            startButton.innerText = 'Restart';
+            startButton.classList.remove('hide');
+            answerButtonsElement.classList.add('hide');
+        }
+    }, 1000);
 }
 
 function setNextQuestion() {
@@ -84,13 +103,6 @@ function incrementScore() {
     document.getElementById("score").innerText = ++oldScore;
 }
 
-
-function minusScore() {
-
-    let oldScore = parseInt(document.getElementById("score").innerText);
-    document.getElementById("score").innerText = --oldScore;
-}
-
 const questions = [
     {
         question: 'What is 2 + 2?',
@@ -136,6 +148,7 @@ const questions = [
         ]
     },
     {
+        catagory: 'sports',
         question: 'What country has won the most World Cups? ',
         answers: [
             { text: 'England', wrong: false },
@@ -154,12 +167,12 @@ const questions = [
         ]
     },
     {
-        question: 'Who is the world’s highest-paid athlete in 2021?',
+        question: 'Who was the world’s highest-paid athlete in 2021?',
         answers: [
             { text: 'Christian Ronaldo', wrong: false },
             { text: 'Conor McGregor', correct: true },
             { text: 'Floyd Mayweather', wrong: false },
             { text: 'Tiger Woods', wrong: false }
         ]
-    }
+    },
 ];
