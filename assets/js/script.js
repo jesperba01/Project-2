@@ -16,6 +16,7 @@ nextButton.addEventListener('click', () => {
 });
 
 function startGame() {
+    document.getElementById('score').innerText = 0;
     startButton.classList.add('hide');
     answerButtonsElement.classList.remove('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5);
@@ -35,6 +36,7 @@ function myTimer() {
             startButton.innerText = 'Restart';
             startButton.classList.remove('hide');
             answerButtonsElement.classList.add('hide');
+            nextButton.classList.add('hide');
         }
     }, 1000);
 }
@@ -99,8 +101,8 @@ function clearStatusClass(element) {
 }
 
 function incrementScore() {
-    let oldScore = parseInt(document.getElementById("score").innerText);
-    document.getElementById("score").innerText = ++oldScore;
+    let oldScore = parseInt(document.getElementById('score').innerText);
+    document.getElementById('score').innerText = ++oldScore;
 }
 
 const questions = [
