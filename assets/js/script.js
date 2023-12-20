@@ -177,7 +177,130 @@ const questions = [
             { text: 'Tiger Woods', wrong: false }
         ]
     },
+    {
+        question: 'How many hearts does an octopus have?',
+        answers: [
+            { text: '3', correct: true },
+            { text: '5', wrong: false },
+            { text: '1', wrong: false },
+            { text: '8', wrong: false }
+        ]
+    },
+    {
+        question: 'Which river flows through the Grand Canyon?',
+        answers: [
+            { text: 'Neuse River', wrong: false },
+            { text: 'Nile', wrong: false },
+            { text: 'Mississippi River', wrong: false },
+            { text: 'Colorado River', correct: true }
+        ]
+    },
+    {
+        question: 'What is the tallest type of tree?',
+        answers: [
+            { text: 'meranti', wrong: false },
+            { text: 'birch', wrong: false },
+            { text: 'Redwoods', correct: true },
+            { text: 'cypress', wrong: false }
+        ]
+    },
+    {
+        question: 'Where did sushi originate?',
+        answers: [
+            { text: 'China', correct: true },
+            { text: 'Japan', wrong: false },
+            { text: 'Mongolia', wrong: false },
+            { text: 'Norway', wrong: false }
+        ]
+    },
+    {
+        question: "I'll Make a Man Out of You' is a song from A Disney movie, which movie?",
+        answers: [
+            { text: 'The Incredibles', wrong: false },
+            { text: 'Snow White', wrong: false },
+            { text: 'Lilo and Stitch', wrong: false },
+            { text: 'Mulan', correct: true }
+        ]
+    },
+    {
+        question: 'What country drinks the most coffee?',
+        answers: [
+            { text: 'Finland', correct: true },
+            { text: 'England', wrong: false },
+            { text: 'Italy', wrong: false },
+            { text: 'Sweden', wrong: false }
+        ]
+    },
+    {
+        question: 'What is the capital of Ireland?',
+        answers: [
+            { text: 'Stockholm', wrong: false },
+            { text: 'Dublin', correct: true },
+            { text: 'Stockholm', wrong: false },
+            { text: 'Stockholm', wrong: false }
+        ]
+    },
+    {
+        question: 'What phone company produced the 3310?',
+        answers: [
+            { text: 'Nokia', correct: true },
+            { text: 'Samsung', wrong: false },
+            { text: 'Sony', wrong: false },
+            { text: 'Appel', wrong: false }
+        ]
+    },
+    {
+        question: 'What is the largest Spanish-speaking city in the world?',
+        answers: [
+            { text: 'Madrid', wrong: false },
+            { text: 'Barcelona', wrong: false },
+            { text: 'Mexico City', correct: true },
+            { text: 'Cancun', wrong: false }
+        ]
+    },
+    {
+        question: 'Roald Amundsen was the first man to reach the South Pole, but where was he from?',
+        answers: [
+            { text: 'England', wrong: false },
+            { text: 'America', wrong: false },
+            { text: 'Germany', wrong: false },
+            { text: 'Norway', correct: true }
+        ]
+    },
+    {
+        question: 'Who was the Ancient Greek God of the Sun?',
+        answers: [
+            { text: 'Apollo', correct: true },
+            { text: 'Athena', wrong: false },
+            { text: 'Hermes', wrong: false },
+            { text: 'Artemis', wrong: false }
+        ]
+    },
+    {
+        question: 'What city is known as "The Eternal City"?',
+        answers: [
+            { text: 'Paris', wrong: false },
+            { text: 'Wien', wrong: false },
+            { text: 'Rome', correct: true },
+            { text: 'Stockholm', wrong: false }
+        ]
+    },
+    {
+        question: 'Which planet has the most moons? Saturn',
+        answers: [
+            { text: 'Jupiter', wrong: false },
+            { text: 'Venus', wrong: false },
+            { text: 'Saturn', correct: true },
+            { text: 'Mercury', wrong: false }
+        ]
+    },
+    {
+        question: 'On what continent would you find the city of Baku?',
+        answers: [
+            { text: 'Africa', wrong: false },
+            { text: 'Asia', correct: true },
+            { text: 'North America', wrong: false },
+            { text: 'South America', wrong: false }
+        ]
+    }
 ];
-
-
-
