@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script defer src="assets/js/script.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
+      <header class="question-counter">
+        <span id="question-counter"> </span>
+      </header>
       <div class="timer"><span id="timer"></span></div>
       <div id="question-container" class="hide"></div>
       <div id="question">
-        <p>You wil have 30 secound to answer as many questuins as you can</p>
+        <p>You will have 30 secounds to answer as many questions as you can</p>
       </div>
       <div id="answer-buttons" class="btn-grid">
         <button class="btn">Answers 1</button>
@@ -26,8 +28,10 @@
         <button id="next-btn" class="next-btn btn hide">Next</button>
       </div>
       <div class="scores">
-        <p class="scores">Score:<span id="score"> 0</span></p>
+        <p class="scores">Score:<span id="score"> </span></p>
       </div>
-    </div>
+    </main>
+    <footer></footer>
+    <script defer src="assets/js/script.js"></script>
   </body>
 </html>
