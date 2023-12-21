@@ -104,3 +104,9 @@ body.wrong {
     align-items: center;
     font-size: 30px;
 }
+
+.question-counter {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}

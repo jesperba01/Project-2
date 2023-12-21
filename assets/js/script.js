@@ -1,35 +1,72 @@
+/** 
+ * Get DOM elements and store them in variables
+ */
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
+const questionCounterElement = document.getElementById('question-counter');
 
-let shuffledQuestions, currentQuestionIndex;
+/** 
+ * Initialize variables for the game state and timer
+ */
+let shuffledQuestions, currentQuestionIndex, questionCounter, interval;
 
+/** 
+ * Hide answer buttons initially
+ */
 answerButtonsElement.classList.add('hide');
 
+/** 
+ * Event listener for starting the game and starting the timer
+ */
 startButton.addEventListener('click', startGame);
 startButton.addEventListener('click', myTimer);
+
+/** 
+ * Event listener for moving to the next question
+ */
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
 });
 
+/** 
+ * Function to start the game
+ */
 function startGame() {
+    // Set initial score to 0
     document.getElementById('score').innerText = 0;
+    // Hide start button and show answer buttons
     startButton.classList.add('hide');
     answerButtonsElement.classList.remove('hide');
-    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    // Shuffle questions and set initial variables
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
+    questionCounter = 0;
     questionContainerElement.classList.remove('hide');
+    // Display the first question
     setNextQuestion();
 }
 
+/** 
+ * Function to update the question counter display
+ */
+function updateQuestionCounter() {
+    questionCounterElement.innerText = questionCounter + '/32';
+}
+
+/** 
+ * Timer function
+ */
 function myTimer() {
-    var count = 30;
-    var interval = setInterval(function () {
+    let count = 30;
+    // Update timer every second
+    interval = setInterval(function () {
         document.getElementById('timer').innerHTML = 'Time Left ' + count;
         count--;
+        // When time is up, show alert, reset UI, and show restart button
         if (count === -1) {
             clearInterval(interval);
             alert("You're out of time!");
@@ -41,12 +78,43 @@ function myTimer() {
     }, 1000);
 }
 
+/** 
+ * Function to set up the next question
+ */
 function setNextQuestion() {
+    // Reset UI state
     resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
-    answerButtonsElement.classList.remove('hide');
+    // If there are more questions, display the next one
+    if (currentQuestionIndex < shuffledQuestions.length) {
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+        answerButtonsElement.classList.remove('hide');
+        questionCounter++;
+        updateQuestionCounter();
+    } else {
+        // If all questions are answered, end the game
+        endGame();
+    }
 }
 
+/** 
+ * Function to end the game
+ */
+function endGame() {
+    // Clear the timer interval if it exists
+    if (interval) {
+        clearInterval(interval);
+    }
+    // Show completion alert and restart button
+    alert("You've completed all questions!");
+    startButton.innerText = 'Restart';
+    startButton.classList.remove('hide');
+    answerButtonsElement.classList.add('hide');
+    nextButton.classList.add('hide');
+}
+
+/** 
+ * Function to display a question
+ */
 function showQuestion(question) {
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
@@ -61,6 +129,9 @@ function showQuestion(question) {
     });
 }
 
+/** 
+ * Function to reset the UI state
+ */
 function resetState() {
     clearStatusClass(document.body);
     nextButton.classList.add('hide');
@@ -69,13 +140,18 @@ function resetState() {
     }
 }
 
+/** 
+ * Function to handle the user's answer selection
+ */
 function selectAnswer(e) {
     let selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
     setStatusClass(document.body, correct);
+    // Apply status class to each answer button
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     });
+    // Show next button or restart button based on the number of questions
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide');
         answerButtonsElement.classList.add('hide');
@@ -83,11 +159,14 @@ function selectAnswer(e) {
         startButton.innerText = 'Restart';
         startButton.classList.remove('hide');
     }
+    // If the answer is correct, increment the score
     if (correct) {
         incrementScore();
     }
 }
-
+/** 
+ * Function to set the status class (correct or wrong)
+ */
 function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -97,11 +176,17 @@ function setStatusClass(element, correct) {
     }
 }
 
+/** 
+ * Function to clear the status class
+ */
 function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
 
+/** 
+ * Function to increment the score
+ */
 function incrementScore() {
     let oldScore = parseInt(document.getElementById('score').innerText);
     document.getElementById('score').innerText = ++oldScore;
@@ -303,6 +388,96 @@ const questions = [
             { text: 'Asia', correct: true },
             { text: 'North America', wrong: false },
             { text: 'South America', wrong: false }
+        ]
+    },
+    {
+        question: 'Which element has the chemical symbol "H"?',
+        answers: [
+            { text: 'Helium', wrong: false },
+            { text: 'Hydrogen', correct: true },
+            { text: 'Hafnium', wrong: false },
+            { text: 'Hassium', wrong: false }
+        ]
+    },
+    {
+        question: 'Who painted the famous artwork "The Persistence of Memory"?',
+        answers: [
+            { text: 'Vincent van Gogh', wrong: false },
+            { text: 'Salvador Dalí', correct: true },
+            { text: 'Pablo Picasso', wrong: false },
+            { text: 'Claude Monet', wrong: false }
+        ]
+    },
+    {
+        question: 'What is the largest mammal in the world?',
+        answers: [
+            { text: 'Elephant', wrong: false },
+            { text: 'Giraffe', wrong: false },
+            { text: 'Blue Whale', correct: true },
+            { text: 'Hippopotamus', wrong: false }
+        ]
+    },
+    {
+        question: 'Which language is the most widely spoken in the world?',
+        answers: [
+            { text: 'Spanish', wrong: false },
+            { text: 'Mandarin Chinese', correct: true },
+            { text: 'English', wrong: false },
+            { text: 'Hindi', wrong: false }
+        ]
+    },
+    {
+        question: 'What is the largest organ in the human body?',
+        answers: [
+            { text: 'Heart', wrong: false },
+            { text: 'Liver', wrong: false },
+            { text: 'Lungs', wrong: false },
+            { text: 'Skin', correct: true }
+        ]
+    },
+    {
+        question: 'Who discovered penicillin?',
+        answers: [
+            { text: 'Alexander Fleming', correct: true },
+            { text: 'Louis Pasteur', wrong: false },
+            { text: 'Jonas Salk', wrong: false },
+            { text: 'Edward Jenner', wrong: false }
+        ]
+    },
+    {
+        question: 'What is the hardest natural substance on Earth?',
+        answers: [
+            { text: 'Diamond', correct: true },
+            { text: 'Quartz', wrong: false },
+            { text: 'Topaz', wrong: false },
+            { text: 'Sapphire', wrong: false }
+        ]
+    },
+    {
+        question: 'Who wrote "The Great Gatsby"?',
+        answers: [
+            { text: 'F. Scott Fitzgerald', correct: true },
+            { text: 'Ernest Hemingway', wrong: false },
+            { text: 'Charles Dickens', wrong: false },
+            { text: 'Mark Twain', wrong: false }
+        ]
+    },
+    {
+        question: 'What is the longest river in the world?',
+        answers: [
+            { text: 'Amazon', wrong: false },
+            { text: 'Mississippi', wrong: false },
+            { text: 'Nile', correct: true },
+            { text: 'Yangtze', wrong: false }
+        ]
+    },
+    {
+        question: 'Which gas do plants primarily use for photosynthesis?',
+        answers: [
+            { text: 'Oxygen', wrong: false },
+            { text: 'Carbon Dioxide', correct: true },
+            { text: 'Nitrogen', wrong: false },
+            { text: 'Helium', wrong: false }
         ]
     }
 ];
