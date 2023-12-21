@@ -26,7 +26,7 @@ function startGame() {
 }
 
 function myTimer() {
-    var count = 25;
+    var count = 30;
     var interval = setInterval(function () {
         document.getElementById('timer').innerHTML = 'Time Left ' + count;
         count--;
@@ -44,6 +44,7 @@ function myTimer() {
 function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
+    answerButtonsElement.classList.remove('hide');
 }
 
 function showQuestion(question) {
@@ -69,7 +70,7 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    const selectedButton = e.target;
+    let selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
     setStatusClass(document.body, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
@@ -77,6 +78,7 @@ function selectAnswer(e) {
     });
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide');
+        answerButtonsElement.classList.add('hide');
     } else {
         startButton.innerText = 'Restart';
         startButton.classList.remove('hide');
@@ -286,7 +288,7 @@ const questions = [
         ]
     },
     {
-        question: 'Which planet has the most moons? Saturn',
+        question: 'Which planet has the most moons?',
         answers: [
             { text: 'Jupiter', wrong: false },
             { text: 'Venus', wrong: false },
