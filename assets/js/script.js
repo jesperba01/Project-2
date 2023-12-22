@@ -64,13 +64,14 @@ function endGame() {
     startButton.classList.remove('hide');
     answerButtonsElement.classList.add('hide');
     nextButton.classList.add('hide');
+    questionElement.classList.add('hide');
 }
 
 /** 
  * Function to update the question counter display
  */
 function updateQuestionCounter() {
-    questionCounterElement.innerText = questionCounter + '/31';
+    questionCounterElement.innerText = questionCounter + '/32';
 }
 
 /** 
