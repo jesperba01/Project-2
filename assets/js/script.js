@@ -41,7 +41,7 @@ function startGame() {
     document.getElementById('score').innerText = 0;
     // Hide start button and show answer buttons
     startButton.classList.add('hide');
-    questionElement.classList.add('hide')
+    questionElement.classList.remove('hide')
     answerButtonsElement.classList.remove('hide');
     // Shuffle questions and set initial variables
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
