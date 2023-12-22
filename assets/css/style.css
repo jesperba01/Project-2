@@ -110,8 +110,3 @@ body.wrong {
     justify-content: flex-end;
     align-items: flex-end;
 }
-
-#github {
-    background: white;
-    display: grid;
-}
