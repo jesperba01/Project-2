@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 /** 
  * Get DOM elements and store them in variables
  */
@@ -40,6 +41,7 @@ function startGame() {
     document.getElementById('score').innerText = 0;
     // Hide start button and show answer buttons
     startButton.classList.add('hide');
+    questionElement.classList.add('hide')
     answerButtonsElement.classList.remove('hide');
     // Shuffle questions and set initial variables
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
@@ -88,6 +90,8 @@ function myTimer() {
             startButton.classList.remove('hide');
             answerButtonsElement.classList.add('hide');
             nextButton.classList.add('hide');
+            questionElement.classList.add('hide')
+
         }
 
     }, 1000);
