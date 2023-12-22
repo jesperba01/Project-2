@@ -51,6 +51,20 @@ function startGame() {
 }
 
 /** 
+ * Function to end the game
+ */
+function endGame() {
+    // Clear the timer interval
+    clearInterval(interval);
+    // Show completion alert and restart button
+    alert("You've completed all questions!");
+    startButton.innerText = 'Restart';
+    startButton.classList.remove('hide');
+    answerButtonsElement.classList.add('hide');
+    nextButton.classList.add('hide');
+}
+
+/** 
  * Function to update the question counter display
  */
 function updateQuestionCounter() {
@@ -86,7 +100,7 @@ function setNextQuestion() {
     // Reset UI state
     resetState();
     // If there are more questions, display the next one
-    if (currentQuestionIndex < shuffledQuestions.length) {
+    if (currentQuestionIndex < shuffledQuestions.length - 1) {
         showQuestion(shuffledQuestions[currentQuestionIndex]);
         answerButtonsElement.classList.remove('hide');
         questionCounter++;
@@ -95,22 +109,6 @@ function setNextQuestion() {
         // If all questions are answered, end the game
         endGame();
     }
-}
-
-/** 
- * Function to end the game
- */
-function endGame() {
-    // Clear the timer interval
-    clearInterval(interval);
-    // Show completion alert and restart button
-    alert("You've completed all questions!. whit some time left, take this time to reflect about your score...");
-    startButton.innerText = 'Restart';
-    startButton.classList.remove('hide');
-    answerButtonsElement.classList.add('hide');
-    nextButton.classList.add('hide');
-    answerButtonsElement.add('hide');
-
 }
 
 /** 
