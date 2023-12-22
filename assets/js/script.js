@@ -75,6 +75,7 @@ function myTimer() {
             answerButtonsElement.classList.add('hide');
             nextButton.classList.add('hide');
         }
+
     }, 1000);
 }
 
@@ -100,16 +101,16 @@ function setNextQuestion() {
  * Function to end the game
  */
 function endGame() {
-    // Clear the timer interval if it exists
-    if (interval) {
-        clearInterval(interval);
-    }
     // Show completion alert and restart button
-    alert("You've completed all questions!");
+    clearInterval(interval);
+    alert("You've completed all questions!. whit some time left, take this time to reflect about your score...");
     startButton.innerText = 'Restart';
     startButton.classList.remove('hide');
     answerButtonsElement.classList.add('hide');
     nextButton.classList.add('hide');
+    answerButtonsElement.add('hide');
+    // Clear the timer interval
+
 }
 
 /** 
