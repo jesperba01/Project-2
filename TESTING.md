@@ -76,6 +76,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | | Click on answer button | shows correct or wrong and shows next button | Pass | |
 | | Click on next button | shows next question | Pass | |
 | | Click on restart button | restarts the game | Pass | |
+| | Click on link to my github | oppens new tab whit my github | Pass | |
 
 ## Bugs
 
