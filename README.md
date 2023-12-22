@@ -5,7 +5,7 @@ For this quiz you have the chance to compete whit friends who is the smartets by
 
 ## Mockup
 
-![screenshot](assets/css/documentation/mockup.png)
+![screenshot](assets/documentation/mockup.png)
 
 ## UX
 
