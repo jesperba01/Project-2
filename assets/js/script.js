@@ -68,7 +68,7 @@ function endGame() {
  * Function to update the question counter display
  */
 function updateQuestionCounter() {
-    questionCounterElement.innerText = questionCounter + '/32';
+    questionCounterElement.innerText = questionCounter + '/31';
 }
 
 /** 
@@ -163,6 +163,7 @@ function selectAnswer(e) {
         incrementScore();
     }
 }
+
 /** 
  * Function to set the status class (correct or wrong)
  */
