@@ -71,7 +71,7 @@ function endGame() {
  * Function to update the question counter display
  */
 function updateQuestionCounter() {
-    questionCounterElement.innerText = questionCounter + '/32';
+    questionCounterElement.innerText = questionCounter + '/31';
 }
 
 /** 
