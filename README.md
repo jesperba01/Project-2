@@ -5,7 +5,7 @@ For this quiz you have the chance to compete whit friends who is the smartets by
 
 ## Mockup
 
-![screenshot](documentation/mockup.png)
+![screenshot](assets/css/documentation/mockup.png)
 
 ## UX
 
@@ -40,49 +40,49 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
   - Button that starts the game for the user.
 
-![screenshot](documentation/features/start.png)
+![screenshot](assets/documentation/features/start.png)
 
 - **Next button**
 
   - Button thats sets the next question after answering the previous one.
 
-![screenshot](documentation/features/next.png)
+![screenshot](assets/documentation/features/next.png)
 
 - **Answer Buttons**
 
   - Buttons whit questions whit correct and wrong answers for the user to chose.
 
-![screenshot](documentation/features/answbutton.png)
+![screenshot](assets/documentation/features/answbutton.png)
 
 - **Restart button**
 
   - Start button renamed at the end of a game so the user can play again.
 
-![screenshot](documentation/features/reset.png)
+![screenshot](assets/documentation/features/reset.png)
 
 - **Score counter**
 
   - counts the amount of correct answers for the user.
 
-![screenshot](documentation/features/score.png)
+![screenshot](assets/documentation/features/score.png)
 
 - **Game timer**
 
   - Shows how much time the user have left to answer questions.
 
-![screenshot](documentation/features/timer.png)
+![screenshot](assets/documentation/features/timer.png)
 
 - **Questions counter**
 
   - Shows the user how many questions answerd and how many left.
 
-![screenshot](documentation/features/qcounter.png)
+![screenshot](assets/documentation/features/qcounter.png)
 
 - **Link**
 
   - Link for the user if they whant to see my github.
 
-![screenshot](documentation/features/link.png)
+![screenshot](assets/documentation/features/link.png)
 
 ### Existing Features
 
