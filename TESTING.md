@@ -87,11 +87,10 @@ Make sure to include any necessary steps you've implemented to fix the bug(s) as
 
 🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
+- Time dosent stop when you run och of questions 
 
-    ![screenshot](documentation/bug01.png)
-
-  - To fix this, I _____________________.
+  - To fix this, I added "clearIntrevalt" to endgame function and called it when there were no more questions ![screenshot](assets/documentation/bugs/buglos1.png)
+  ![screenshot](assets/documentation/bugs/buglos2.png)
 
 - JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
 
