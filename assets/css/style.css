@@ -110,3 +110,8 @@ body.wrong {
     justify-content: right;
     align-items: right;
 }
+
+#github {
+    background: white;
+    display: grid;
+}
